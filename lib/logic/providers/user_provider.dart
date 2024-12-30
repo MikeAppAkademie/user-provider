@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:user_provider/model/user.dart';
 
-class UserProvider extends ChangeNotifier {
+class UserProvider with ChangeNotifier {
   User _user = User(name: 'Dirk', age: 25);
 
   User get user => _user;
@@ -12,5 +12,6 @@ class UserProvider extends ChangeNotifier {
   }) {
     _user.name = newName;
     _user.age = newAge;
+    notifyListeners();
   }
 }
